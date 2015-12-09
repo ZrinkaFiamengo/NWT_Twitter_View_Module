@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Favourites";
+}
+@Html.Partial("_LoginPartial")
+
+<main>
+    <aside id="user-panel-container">
+        @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+
+        @Html.Partial("~/Views/Shared/_Trends.cshtml")
+
+    </aside>
+    <div id="main-content-container" class="panel">
+        <h3>Tweets you favourited</h3><br/>
+        <div class="panel panel-default tweet">
+            <div class="panel-body">
+                <img src="~/Content/Users/User2.png" class="tweet-user-image" alt="user picture" />
+                <div class="tweet-data">
+                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
+                    <div class="tweet-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a src="#"> #hashtag_trend1</a></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Favourite</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default tweet">
+            <div class="panel-body">
+                <img src="~/Content/Users/User3.png" class="tweet-user-image" alt="user picture" />
+                <div class="tweet-data">
+                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
+                    <div class="tweet-text">Duis malesuada leo justo, eget efficitur ligula varius sed. Suspendisse potenti. Integer imperdiet lobortis leo. Integer ullamcorper iaculis convallis.<a src="#"> #hashtag_trend1</a><a src="#"> #hashtag_trend2</a></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Favourite</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default tweet">
+            <div class="panel-body">
+                <img src="~/Content/Users/User4.png" class="tweet-user-image" alt="user picture" />
+                <div class="tweet-data">
+                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
+                    <div class="tweet-text">Aliquam quam quam, dignissim non eros nec, congue scelerisque arcu. Nam ac nibh massa. Suspendisse tristique ante vel ultricies congue. Mauris sagittis nec tortor vitae rutrum. <a src="#"> #hashtag_trend6</a></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Favourite</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default tweet">
+            <div class="panel-body">
+                <img src="~/Content/Users/User1.png" class="tweet-user-image" alt="user picture" />
+                <div class="tweet-data">
+                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
+                    <div class="tweet-text">Donec lacinia massa lectus. Sed a tristique odio.<a src="#"> #hashtag_trend1</a></div>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Favourite</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+

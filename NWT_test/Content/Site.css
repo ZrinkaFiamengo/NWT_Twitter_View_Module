@@ -1,0 +1,268 @@
+﻿body {
+    font-family: Arial,sans-serif;
+	background-color: #F0F8FF;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+h3{
+	color: #0084B4;
+	font-weight: bold;
+}
+
+hr{
+	box-shadow: 0 0 2px 1px #0084B4;
+}
+
+#main-navbar-menu{
+   font-size: 18px;
+   padding-top: 14px;
+}
+
+.main-navbar-menu-item{
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: dotted 1px #0084B4;
+}
+
+.main-navbar-menu-item:last-child{
+    border-right: none;
+}
+
+.user-image{
+	width: 35px;
+	margin: 10px;
+	border-radius: 5px;
+}
+
+.navbar-default{
+	font-size:16px;
+	font-weight: 500;
+	background-color: white;
+}
+
+.search-box{
+	width: 270px;
+	margin: 10px;
+}
+
+#user-panel-user-image{
+	margin-top: 60px;
+	width: 70px;
+	margin-left: 20px;
+	border-radius: 10px;
+	border: solid 4px white;
+}
+
+#profile-user-image{
+	margin-top: 40px;
+	width: 100px;
+	margin-left: 20px;
+	border-radius: 10px;
+	border: solid 4px white;
+	position: absolute;
+}
+
+#user-panel-user-name{
+	margin-top: -50px;
+	padding-left: 100px;
+	font-size: 20px;
+}
+
+#profile-user-name{
+	margin-top: 50px;
+	margin-left: 150px;
+	font-size: 30px;
+	color: white;
+}
+
+#user-panel-nickname{
+	margin-top: -50px;
+	padding-left: 100px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	color: gray;
+}
+
+#profile-nickname{
+	padding-left: 150px;
+	font-size: 12px;
+	color: gray;
+}
+
+.user-container-info
+{
+	width: 50px;
+	margin-left: 30px;
+	color: gray;
+	font-size: 12px;
+}
+
+.profile-info
+{
+	width: 50px;
+	margin-left: 150px;
+	color: gray;
+	font-size: 16px;
+	padding-top: 20px;
+}
+
+main{
+	display: flex;
+	margin-left:50px;
+	margin-right:50px;
+	
+}
+
+#main-content-container{
+	background-color: #F0F8FF;
+	flex:1;
+	margin: 1rem;
+}
+
+#profile-data-div{
+	background-color: #F0F8FF;
+	flex:2;
+	margin: 1rem;
+}
+
+#user-panel-container{
+	max-width: 290px;
+	padding: 1rem;
+}
+
+.user-panel{
+	height: 220px;
+	max-width: 270px;
+	min-width: 100px;
+	background-image: linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -o-linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -moz-linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -webkit-linear-gradient(bottom, white 50%, #0084B4 50%);
+}
+
+#profile-panel{
+	margin-left: 52px;
+	margin-right: 52px;
+	height: 200px;
+	min-width: 400px;
+	background-image: linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -o-linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -moz-linear-gradient(bottom, white 50%, #0084B4 50%);
+	background-image: -webkit-linear-gradient(bottom, white 50%, #0084B4 50%);
+}
+
+
+#new-tweet{
+	background-color: #0084B4;
+	border-radius: 5px;
+	font-size: 14px;
+	margin: 12px;
+	height: 30px;
+}
+
+.white-text{
+	color: white;
+}
+
+#trends-label{
+	font-size: 20px;
+	margin:10px;
+	color:gray;
+}
+
+#trends-list{
+	list-style-type: none;
+	color:gray;
+}
+
+
+.new-tweet-window
+{
+	min-width: 400px;
+}
+
+.img-from-new-tweet-window{
+	position: absolute;
+}
+
+.input-from-new-tweet-window{
+	margin-left: 50px;
+	margin-top: 10px;
+	width: 90%;
+}
+
+.number-from-new-tweet-window{
+	margin-right:20px;
+	margin-top:10px;
+}
+
+.tweet{
+	color: gray;
+	padding: 1rem;
+	display: flex;
+	min-width: 300px;
+}
+
+.tweet-user-image{
+	width: 70px;
+	margin-left: 20px;
+	border-radius: 10px;
+	border: solid 4px white;
+	position: absolute;
+}
+
+.tweet-data{
+	margin-left: 100px;
+}
+
+.tweet-text{
+	color: black;
+}
+
+.new-tweet-list{
+	margin-left: 50px;
+}
+
+.edit-profile{
+	margin-right: 20px;
+}
+
+.users{
+	min-width: 500px;
+	min-height: 120px;
+	padding: 10px;
+}
+
+.users-name{
+	padding-left: 120px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.users-image{
+	width: 100px;
+	margin-left: 10px;
+	border-radius: 10px;
+	border: solid 4px white;
+	position: absolute;
+}
+
+.users-nickname{
+	padding-left: 120px;
+}
+
+.users-info{
+	padding-left: 120px;
+    margin-left: 10px;
+}
+
+.trends{
+	min-width: 200px;
+}
