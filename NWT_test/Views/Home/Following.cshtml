@@ -1,5 +1,5 @@
 ﻿<script>
-    System.import("/Scripts/App/Components/Trends.js");
+    System.import("/Scripts/App/Following.js");
 </script>
 
 @{
@@ -8,87 +8,5 @@
 
 @Html.Partial("_LoginPartial")
 
-<main>
-    <aside id="user-panel-container">
-        @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
-
-        <trends>Loading list..</trends>
-    </aside>
-    <div id="main-content-container" class="panel">
-        <h3>Users you followed</h3><br/>
-
-        <div class="panel panel-default users">
-            <img src="~/Content/Users/User2.png" class="users-image" alt="user picture" />
-            <a src="#"> <label class="users-name">Ime Prezime</label><br/></a>
-            <a src="#"> <span class="users-nickname">@@Nickname</span><br/></a>
-            <button class="btn pull-right btn-warning">Unfollow</button>
-            <ul class="nav navbar-nav">
-                <li class="users-info">
-                    TWEETS <br/>
-                    <label>5</label>
-                </li>
-                <li class="users-info">
-                    FOLLOWING<br/>
-                    <label>20</label>
-                </li>
-            </ul>
-        </div>
-
-        <div class="panel panel-default users">
-            <img src="~/Content/Users/User3.png" class="users-image" alt="user picture" />
-            <a src="#"> <label class="users-name">Ime Prezime</label><br/></a>
-            <a src="#"> <span class="users-nickname">@@Nickname</span><br/></a>
-            <button class="btn pull-right btn-warning">Unfollow</button>
-            <ul class="nav navbar-nav">
-                <li class="users-info">
-                    TWEETS <br/>
-                    <label>5</label>
-                </li>
-                <li class="users-info">
-                    FOLLOWING<br/>
-                    <label>20</label>
-                </li>
-            </ul>
-        </div>
-
-        <hr>
-        <h3>Other Users</h3><br/>
-
-        <div class="panel panel-default users">
-            <img src="~/Content/Users/User2.png" class="users-image" alt="user picture" />
-            <a src="#"> <label class="users-name">Ime Prezime</label><br/></a>
-            <a src="#"> <span class="users-nickname">@@Nickname</span><br/></a>
-            <button class="btn pull-right btn-success">Follow</button>
-            <ul class="nav navbar-nav">
-                <li class="users-info">
-                    TWEETS <br/>
-                    <label>5</label>
-                </li>
-                <li class="users-info">
-                    FOLLOWING<br/>
-                    <label>20</label>
-                </li>
-            </ul>
-        </div>
-
-        <div class="panel panel-default users">
-            <img src="~/Content/Users/User4.png" class="users-image" alt="user picture" />
-            <a src="#"> <label class="users-name">Ime Prezime</label><br/></a>
-            <a src="#"> <span class="users-nickname">@@Nickname</span><br/></a>
-            <button class="btn pull-right btn-success">Follow</button>
-            <ul class="nav navbar-nav">
-                <li class="users-info">
-                    TWEETS <br/>
-                    <label>5</label>
-                </li>
-                <li class="users-info">
-                    FOLLOWING<br/>
-                    <label>20</label>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-</main>
+<following>Loading content...</following>
 
