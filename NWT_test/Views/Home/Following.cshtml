@@ -1,4 +1,7 @@
-﻿
+﻿<script>
+    System.import("/Scripts/App/Components/Trends.js");
+</script>
+
 @{
     ViewBag.Title = "Following";
 }
@@ -9,7 +12,7 @@
     <aside id="user-panel-container">
         @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
 
-        @Html.Partial("~/Views/Shared/_Trends.cshtml")
+        <trends>Loading list..</trends>
     </aside>
     <div id="main-content-container" class="panel">
         <h3>Users you followed</h3><br/>

@@ -1,4 +1,8 @@
-﻿
+﻿<script>
+    System.import("/Scripts/App/Components/Trends.js");
+</script>
+
+
 @{
     ViewBag.Title = "Profile";
 }
@@ -75,7 +79,7 @@
 
     <aside id="user-panel-container" class="hidden-xs trends">
 
-        @Html.Partial("~/Views/Shared/_Trends.cshtml");
+        <trends>Loading list..</trends>
 
     </aside>
 </main>

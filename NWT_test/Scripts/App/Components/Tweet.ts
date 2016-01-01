@@ -1,4 +1,4 @@
-﻿import {Component, View, bootstrap, NgFor, NgClass, NgIf, NgStyle} from "angular2/angular2"
+﻿import {Component, View, NgFor} from "angular2/angular2"
 import {Tweet as TweetModel} from "./../Model/Tweet"
 
 @Component({
@@ -15,7 +15,7 @@ import {Tweet as TweetModel} from "./../Model/Tweet"
                     <a src="#"> <label>{{tweet.getFullName()}}</label></a>  @{{tweet.nickname}} - {{tweet.publishTime|date}}
                     <div class="tweet-text">{{tweet.data}}
                        <span *ng-for="#hashtag of tweet.hashtags">
-                        <a src="#">   {{hashtag}}</a></div>
+                        <a src="#">   {{hashtag.data}}</a></div>
                        </span>
                     <ul class="list-inline">
                         <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>

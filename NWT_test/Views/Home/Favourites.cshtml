@@ -1,4 +1,7 @@
-﻿
+﻿<script>
+    System.import("/Scripts/App/Components/Trends.js");
+</script>
+
 @{
     ViewBag.Title = "Favourites";
 }
@@ -8,7 +11,7 @@
     <aside id="user-panel-container">
         @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
 
-        @Html.Partial("~/Views/Shared/_Trends.cshtml")
+        <trends>Loading list..</trends>
 
     </aside>
     <div id="main-content-container" class="panel">

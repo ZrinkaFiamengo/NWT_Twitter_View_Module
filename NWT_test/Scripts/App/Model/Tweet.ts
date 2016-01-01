@@ -1,13 +1,15 @@
-﻿export class Tweet {
+﻿import {Hashtag} from "./Hashtag"
+
+export class Tweet {
     public name: string;
     public lastname: string;
     public nickname: string;
     public imageUrl: string;
     public publishTime: Date;
     public data: string;
-    public hashtags: string[];
+    public hashtags: Hashtag[];
 
-    constructor(name: string, lastname: string,nickname:string, imageUrl: string, publishTime: Date, data: string, hashtags: string[] = []) {
+    constructor(name: string, lastname: string,nickname:string, imageUrl: string, publishTime: Date, data: string, hashtags: Hashtag[] = []) {
         this.name = name;
         this.lastname = lastname;
         this.nickname = nickname;
