@@ -1,25 +1,16 @@
 ﻿import {Hashtag} from "./Hashtag"
+import {User} from "./User"
 
 export class Tweet {
-    public name: string;
-    public lastname: string;
-    public nickname: string;
-    public imageUrl: string;
+    public author: User;
     public publishTime: Date;
     public data: string;
     public hashtags: Hashtag[];
 
-    constructor(name: string, lastname: string,nickname:string, imageUrl: string, publishTime: Date, data: string, hashtags: Hashtag[] = []) {
-        this.name = name;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.imageUrl = imageUrl;
+    constructor(author: User, publishTime: Date, data: string, hashtags: Hashtag[] = []) {
+        this.author = author;
         this.publishTime = publishTime;
         this.data = data;
         this.hashtags = hashtags;
-    }
-
-    public getFullName(): string {
-        return this.name + " " + this.lastname;
     }
 }

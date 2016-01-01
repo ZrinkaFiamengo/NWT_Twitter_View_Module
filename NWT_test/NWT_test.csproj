@@ -272,6 +272,7 @@
     <TypeScriptCompile Include="Scripts\App\Index.ts" />
     <TypeScriptCompile Include="Scripts\App\Model\Hashtag.ts" />
     <TypeScriptCompile Include="Scripts\App\Model\Tweet.ts" />
+    <TypeScriptCompile Include="Scripts\App\Model\User.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular2.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\es6-shim.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\fetch.d.ts" />

@@ -10,9 +10,9 @@ import {Tweet as TweetModel} from "./../Model/Tweet"
     directives: [NgFor],
     template: `<div class="panel panel-default tweet">
                 <div class="panel-body">
-                <img src={{tweet.imageUrl}} class="tweet-user-image" alt="user picture" />
+                <img src={{tweet.author.imageUrl}} class="tweet-user-image" alt="user picture" />
                 <div class="tweet-data">
-                    <a src="#"> <label>{{tweet.getFullName()}}</label></a>  @{{tweet.nickname}} - {{tweet.publishTime|date}}
+                    <a src="#"> <label>{{tweet.author.getFullName()}}</label></a>  @{{tweet.author.nickname}} - {{tweet.publishTime|date}}
                     <div class="tweet-text">{{tweet.data}}
                        <span *ng-for="#hashtag of tweet.hashtags">
                         <a src="#">   {{hashtag.data}}</a></div>
