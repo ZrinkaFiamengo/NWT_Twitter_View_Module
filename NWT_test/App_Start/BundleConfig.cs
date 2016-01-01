@@ -23,6 +23,10 @@ namespace NWT_test
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular2").Include(
+                      "~/Scripts/system.js",
+                      "~/Scripts/angular2.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

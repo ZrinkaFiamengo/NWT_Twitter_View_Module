@@ -1,4 +1,8 @@
-﻿@{
+﻿<script>
+  System.import("/Scripts/App/Components/TweetsList.js");
+</script>
+
+@{
     ViewBag.Title = "Index";
 }
 @Html.Partial("_LoginPartial")
@@ -15,7 +19,7 @@
             <form class="form-horizontal" role="form">
                 <div class="form-group" style="padding:14px;">
                     <img src="~/Content/Users/User1.png" class="user-image img-from-new-tweet-window" alt="user picture" />
-                    <input class="form-control input-from-new-tweet-window" placeholder="What's happening?"></textarea>
+                    <input class="form-control input-from-new-tweet-window" placeholder="What's happening?">
                 </div>
                 <button class="btn btn-success pull-right" type="button">Post</button>
                 <span class="pull-right number-from-new-tweet-window">140</span>
@@ -27,65 +31,7 @@
             </form>
         </div>
 
-        <div class="panel panel-default tweet">
-            <div class="panel-body">
-                <img src="~/Content/Users/User2.png" class="tweet-user-image" alt="user picture" />
-                <div class="tweet-data">
-                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
-                    <div class="tweet-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a src="#"> #hashtag_trend1</a></div>
-                    <ul class="list-inline">
-                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Favourite</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default tweet">
-            <div class="panel-body">
-                <img src="~/Content/Users/User3.png" class="tweet-user-image" alt="user picture" />
-                <div class="tweet-data">
-                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
-                    <div class="tweet-text">Duis malesuada leo justo, eget efficitur ligula varius sed. Suspendisse potenti. Integer imperdiet lobortis leo. Integer ullamcorper iaculis convallis.<a src="#"> #hashtag_trend1</a><a src="#"> #hashtag_trend2</a></div>
-                    <ul class="list-inline">
-                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Favourite</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default tweet">
-            <div class="panel-body">
-                <img src="~/Content/Users/User4.png" class="tweet-user-image" alt="user picture" />
-                <div class="tweet-data">
-                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
-                    <div class="tweet-text">Aliquam quam quam, dignissim non eros nec, congue scelerisque arcu. Nam ac nibh massa. Suspendisse tristique ante vel ultricies congue. Mauris sagittis nec tortor vitae rutrum. <a src="#"> #hashtag_trend6</a></div>
-                    <ul class="list-inline">
-                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Favourite</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default tweet">
-            <div class="panel-body">
-                <img src="~/Content/Users/User1.png" class="tweet-user-image" alt="user picture" />
-                <div class="tweet-data">
-                    <a src="#"> <label>Ime Prezime </label></a>@@Nickname - 12. prosinca
-                    <div class="tweet-text">Donec lacinia massa lectus. Sed a tristique odio.<a src="#"> #hashtag_trend1</a></div>
-                    <ul class="list-inline">
-                        <li><a href="#"><i class="glyphicon glyphicon-arrow-left"></i>  Reply</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-repeat"></i>  Retweet</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Favourite</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+       <tweets-list>Loading Users Tweets..</tweets-list>
 
     </div>
 

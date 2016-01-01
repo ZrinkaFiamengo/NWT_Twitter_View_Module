@@ -1,7 +1,8 @@
-﻿body {
+﻿html {
     font-family: Arial,sans-serif;
 	background-color: #F0F8FF;
 }
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -20,19 +21,28 @@ hr{
 	box-shadow: 0 0 2px 1px #0084B4;
 }
 
-#main-navbar-menu{
-   font-size: 18px;
-   padding-top: 14px;
+h4{
+   font-size: 16px;
+   color: #0084B4;
+   padding: 0px;
+   margin: 0px;
 }
+
 
 .main-navbar-menu-item{
     padding-right: 10px;
     padding-left: 10px;
-    border-right: dotted 1px #0084B4;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border-left: solid 2px lightgray;
+}
+
+.main-navbar-menu-item:hover{
+    background-color: #f5f5f5;
 }
 
 .main-navbar-menu-item:last-child{
-    border-right: none;
+    border-right: solid 2px lightgray;
 }
 
 .user-image{
@@ -43,8 +53,7 @@ hr{
 
 .navbar-default{
 	font-size:16px;
-	font-weight: 500;
-	background-color: white;
+    background-color: ghostwhite;
 }
 
 .search-box{

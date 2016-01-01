@@ -6,6 +6,10 @@
     <title>@ViewBag.Title - Cvrkutalo</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/angular2")
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -20,10 +24,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="main-navbar-menu">
-                    <li class="main-navbar-menu-item"><span class="glyphicon glyphicon-home" />@Html.ActionLink("Home", "Index", "Home") <span class="badge">2</span></li>
-                    <li class="main-navbar-menu-item"><span class="glyphicon glyphicon-user" />@Html.ActionLink("Profile", "Profile", "Home")</li>
-                    <li class="main-navbar-menu-item"><span class="glyphicon glyphicon-star" />@Html.ActionLink("Favourites", "Favourites", "Home")</li>
-                    <li class="main-navbar-menu-item"><span class="glyphicon glyphicon-heart" />@Html.ActionLink("Following", "Following", "Home")</li>
+                    <li class="main-navbar-menu-item"> <a href="@Url.Action("Index", "Home")"> <h4>Home  <span class="glyphicon glyphicon-home" /></h4> </a></li>
+                    <li class="main-navbar-menu-item"> <a href="@Url.Action("Profile", "Home")"><h4>Profile   <span class="glyphicon glyphicon-user" /></h4></a></li>
+                    <li class="main-navbar-menu-item"> <a href="@Url.Action("Favourites", "Home")"><h4>Favourites   <span class="glyphicon glyphicon-star" /></h4></a></li>
+                    <li class="main-navbar-menu-item"> <a href="@Url.Action("Following", "Home")"><h4>Following   <span class="glyphicon glyphicon-heart" /></h4></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -53,10 +57,6 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
