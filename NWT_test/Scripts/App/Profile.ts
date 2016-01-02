@@ -107,10 +107,10 @@ export class Profile {
         ];
 
         this.users = [
-            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png"),
-            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png"),
-            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png"),
-            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png"),
+            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png", 5, 20),
+            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png", 3, 16),
+            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png", 8, 10),
+            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png", 234, 1),
         ];
 
 

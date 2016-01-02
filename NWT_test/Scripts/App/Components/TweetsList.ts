@@ -1,4 +1,4 @@
-﻿import {Component, View, NgFor, bootstrap} from "angular2/angular2"
+﻿import {Component, View, NgFor} from "angular2/angular2"
 
 import {Tweet as TweetModel} from "./../Model/Tweet"
 import {Tweet} from "./Tweet"
