@@ -250,7 +250,6 @@
     <Content Include="Views\Home\Favourites.cshtml" />
     <Content Include="Views\Home\Following.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Shared\_UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\Components\NewTweet.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\ProfileBox.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Trends.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Tweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\TweetsList.ts" />

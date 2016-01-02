@@ -5,6 +5,7 @@ import {User as UserModel} from "./Model/User"
 import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
+import {ProfileBox} from "./Components/ProfileBox"
 
 
 @Component({
@@ -12,24 +13,10 @@ import {UserInfo} from "./Components/UserInfo"
 })
 
 @View({
-    directives: [TweetsList, Trends, UserInfo],
+        directives: [TweetsList, Trends, UserInfo, ProfileBox],
     template:
-    `<div class="panel panel-default" id="profile-panel">
-    <img src="/Content/Users/User1.png" id="profile-user-image" alt="user picture" />
-    <a src="#"> <label id="profile-user-name">Ime Prezime</label><br/></a>
-    <a src="#"> <span id="profile-nickname">@Nickname</span><br/></a>
-    <ul class="hidden-xs nav navbar-nav">
-        <li class="profile-info">
-            TWEETS <br/>
-            <label>5</label>
-        </li>
-        <li class="profile-info">
-            FOLLOWING<br/>
-            <label>20</label>
-        </li>
-    </ul>
-    <button class="btn button pull-right edit-profile">Edit Profile</button>
-</div>
+    `
+    <profile-box [user] = "currentUser" >Loading user info..</profile-box>
 
 <main>
     <div id="profile-data-div">
