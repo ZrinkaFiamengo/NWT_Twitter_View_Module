@@ -95,6 +95,7 @@ export class Profile {
     public hashtags: HashtagModel[];
     public tweets: TweetModel[];
     public users: UserModel[];
+    public currentUser: UserModel;
 
     constructor() {
         this.hashtags = [
@@ -107,13 +108,16 @@ export class Profile {
         ];
 
         this.users = [
-            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png", 5, 20),
-            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png", 3, 16),
-            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png", 8, 10),
-            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png", 234, 1),
+            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png"),
+            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png"),
+            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png"),
+            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png"),
         ];
 
-
+        this.users[0].following = [this.users[2], this.users[1]];
+        this.users[1].following = [this.users[2]];
+        this.users[2].following = [this.users[3], this.users[1], this.users[0]];
+        this.users[3].following = [this.users[2], this.users[1]];
 
         this.tweets = [
             new TweetModel(this.users[0], new Date(2015, 12, 12), "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", [this.hashtags[0], this.hashtags[4]]),
@@ -121,6 +125,8 @@ export class Profile {
             new TweetModel(this.users[2], new Date(2015, 12, 4), "Aliquam quam quam, dignissim non eros nec, congue scelerisque arcu. Nam ac nibh massa. Suspendisse tristique ante vel ultricies congue. Mauris sagittis nec tortor vitae rutrum.", [this.hashtags[5]]),
             new TweetModel(this.users[3], new Date(2015, 12, 2), "Donec lacinia massa lectus. Sed a tristique odio.", [this.hashtags[3], this.hashtags[4], this.hashtags[1]])
         ];
+
+        this.currentUser = this.users[0];
     }
 }
 

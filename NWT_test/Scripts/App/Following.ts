@@ -16,23 +16,23 @@ import {UsersFollowingList} from "./Components/UsersFollowingList"
     `<main>
     <aside id="user-panel-container">
         <user-info [user] = "currentUser" >Loading user info..</user-info>
-
         <trends [hashtags]="hashtags">Loading list..</trends>
     </aside>
-    <div id="main-content-container" class="panel">
 
-        <users-following-list [users]="following" is-following = "true" (unfollowed)="onUnFollow($event)">Loading users you followed..</users-following-list>
+    <div id="main-content-container" class="panel">
+        <users-following-list [users]="currentUser.following" is-following = "true" (unfollowed)="onUnFollow($event)">Loading users you followed..</users-following-list>
         <hr/>
         <users-following-list [users]="notFollowing" (followed)="onFollow($event)">Loading other users..</users-following-list>    
     </div>
-</main>`
+
+    </main>
+    `
 })
 
 export class Following {
     public hashtags: HashtagModel[];
     public users: UserModel[];
     public currentUser: UserModel;
-    public following: UserModel[];
     public notFollowing: UserModel[];
 
     constructor() {
@@ -47,20 +47,23 @@ export class Following {
 
 
         this.users = [
-            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png", 5, 20),
-            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png", 3, 16),
-            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png", 8, 10),
-            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png", 234, 1),
+            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png"),
+            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png"),
+            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png"),
+            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png"),
         ];
 
-        this.currentUser = this.users[0];
+        this.users[0].following = [this.users[2], this.users[1]];
+        this.users[1].following = [this.users[2]];
+        this.users[2].following = [this.users[3], this.users[1], this.users[0]];
+        this.users[3].following = [this.users[2], this.users[1]];
 
-        this.following = [this.users[2], this.users[1]];
+        this.currentUser = this.users[0];
 
         this.notFollowing = [];
 
         this.users.forEach(user=> {
-            if (user != this.currentUser && this.following.indexOf(user)==-1)
+            if (user != this.currentUser && this.currentUser.following.indexOf(user)==-1)
                 this.notFollowing.push(user);
         });
     }
@@ -72,14 +75,14 @@ export class Following {
             this.notFollowing.splice(index, 1);
         }
 
-        this.following.push(user);
+        this.currentUser.following.push(user);
     }
 
     private onUnFollow(user: UserModel) {
-        var index = this.following.indexOf(user);
+        var index = this.currentUser.following.indexOf(user);
 
         if (index != -1) {
-            this.following.splice(index, 1);
+            this.currentUser.following.splice(index, 1);
         }
 
         this.notFollowing.push(user);

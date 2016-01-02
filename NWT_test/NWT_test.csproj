@@ -265,6 +265,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\App\Components\NewTweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Trends.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Tweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\TweetsList.ts" />

@@ -16,11 +16,11 @@ import {User as UserModel} from "./../Model/User"
     <ul class="hidden-xs nav navbar-nav">
         <li class="user-container-info">
             TWEETS <br />
-            <label>{{user.numberTweets}}</label>
+            <label>{{user.numberTweets()}}</label>
         </li>
         <li class="user-container-info">
             FOLLOWING<br />
-            <label>{{user.numberFollowing}}</label>
+            <label>{{user.numberFollowing()}}</label>
         </li>
     </ul>
 </div>
