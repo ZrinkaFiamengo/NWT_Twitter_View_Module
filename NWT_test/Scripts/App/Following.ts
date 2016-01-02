@@ -21,9 +21,9 @@ import {UsersFollowingList} from "./Components/UsersFollowingList"
     </aside>
     <div id="main-content-container" class="panel">
 
-        <users-following-list [users]="following" is-following = "true">Loading users you followed..</users-following-list>
+        <users-following-list [users]="following" is-following = "true" (unfollowed)="onUnFollow($event)">Loading users you followed..</users-following-list>
         <hr/>
-        <users-following-list [users]="notFollowing">Loading other users..</users-following-list>    
+        <users-following-list [users]="notFollowing" (followed)="onFollow($event)">Loading other users..</users-following-list>    
     </div>
 </main>`
 })
@@ -63,6 +63,26 @@ export class Following {
             if (user != this.currentUser && this.following.indexOf(user)==-1)
                 this.notFollowing.push(user);
         });
+    }
+
+    private onFollow(user: UserModel) {
+        var index = this.notFollowing.indexOf(user);
+
+        if (index != -1) {
+            this.notFollowing.splice(index, 1);
+        }
+
+        this.following.push(user);
+    }
+
+    private onUnFollow(user: UserModel) {
+        var index = this.following.indexOf(user);
+
+        if (index != -1) {
+            this.following.splice(index, 1);
+        }
+
+        this.notFollowing.push(user);
     }
 }
 
