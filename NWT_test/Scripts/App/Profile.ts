@@ -20,7 +20,7 @@ import {ProfileBox} from "./Components/ProfileBox"
 
 <main>
     <div id="profile-data-div">
-        <tweets-list [tweets]="currentUser.tweets" >Loading User's Tweets..</tweets-list>
+        <tweets-list [tweets]="currentUser.tweets" [current-user]="currentUser">Loading User's Tweets..</tweets-list>
     </div>
 
     <aside id="user-panel-container" class="hidden-xs trends">

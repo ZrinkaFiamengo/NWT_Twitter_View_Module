@@ -22,9 +22,11 @@ import {UserInfo} from "./Components/UserInfo"
 
     <div id="main-content-container" class="panel">
         <h3>Tweets you favourited</h3><br/>
-        <tweets-list [tweets]="currentUser.favourites" >Loading Users Tweets..</tweets-list>
+        <tweets-list [tweets]="currentUser.favourites" [current-user]="currentUser" (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
+        <br/><hr/><br/>
+        <h3>You may also like</h3><br/>
+        <tweets-list [tweets]="notFavourited" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)" >Loading User's Tweets..</tweets-list>
     </div>
-
 </main>
 
 `
@@ -35,6 +37,7 @@ export class Favourites {
     public tweets: TweetModel[];
     public users: UserModel[];
     public currentUser: UserModel;
+    public notFavourited: TweetModel[];
 
     constructor() {
         this.hashtags = [
@@ -68,7 +71,32 @@ export class Favourites {
         ];
 
         this.currentUser.favourites = [this.tweets[1], this.tweets[2]];
+        this.currentUser.tweets = this.tweets.filter(tweet => tweet.author == this.currentUser);
 
+
+        this.notFavourited = [];
+
+        this.tweets.forEach(tweet=> {
+            if (this.currentUser.favourites.indexOf(tweet) == -1)
+                this.notFavourited.push(tweet);
+        });
+
+    }
+
+    private onPutFavourited(favourite: TweetModel): void {
+        var index = this.notFavourited.indexOf(favourite);
+        if (index != -1) {
+            this.notFavourited.splice(index, 1);
+        }
+        this.currentUser.favourites.push(favourite);
+    }
+
+    private onRemoveFavourited(favourite: TweetModel): void {
+        var index = this.currentUser.favourites.indexOf(favourite);
+        if (index != -1) {
+            this.currentUser.favourites.splice(index, 1);
+        }
+        this.notFavourited.push(favourite);
     }
 }
 
