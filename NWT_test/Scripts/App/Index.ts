@@ -6,6 +6,7 @@ import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
 import {NewTweet} from "./Components/NewTweet"
+import {ContainsPipe} from "./Pipes/ContainsPipe"
 
 
 @Component({
@@ -14,17 +15,27 @@ import {NewTweet} from "./Components/NewTweet"
 
     @View({
         directives: [TweetsList, Trends, UserInfo, NewTweet],
+        pipes: [ContainsPipe],
     template:
     `<main>
 
     <aside id="user-panel-container">
         <user-info [user] = "currentUser" >Loading user info..</user-info>
+
+        <div class="input-group">
+         <input type="text" class="form-control" placeholder="Search for..." #search (keyup)="updateSearchKey(search)"/>
+         <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" /></button>
+         </span>
+        </div>
+
+        <br/>
         <trends [hashtags]="hashtags" >Loading list..</trends>
     </aside>
 
     <div id="main-content-container" class="panel">
         <new-tweet (publish)="onNewTweetPublish($event)">Loading new tweet window..</new-tweet>
-        <tweets-list [tweets]="tweets" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)"  (remove-favourited)="onRemoveFavourited($event)">Loading Users Tweets..</tweets-list>
+        <tweets-list [tweets]="tweets|contains:searchKey" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)"  (remove-favourited)="onRemoveFavourited($event)">Loading Users Tweets..</tweets-list>
     </div>
 
 </main>`
@@ -35,8 +46,12 @@ export class Index {
     public tweets: TweetModel[];
     public users: UserModel[];
     public currentUser: UserModel;
+    private searchKey: string;
+
 
     constructor() {
+        this.searchKey = "";
+
         this.hashtags = [
             new HashtagModel("#hashtag_trend1"),
             new HashtagModel("#hashtag_trend2"),
@@ -86,6 +101,10 @@ export class Index {
         if (index != -1) {
             this.currentUser.favourites.splice(index, 1);
         }
+    }
+
+    private updateSearchKey(input: HTMLInputElement): void {
+        this.searchKey = input.value;
     }
 }
 
