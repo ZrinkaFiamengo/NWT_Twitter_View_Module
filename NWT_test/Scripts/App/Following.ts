@@ -4,6 +4,8 @@ import {User as UserModel} from "./Model/User"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
 import {UsersFollowingList} from "./Components/UsersFollowingList"
+import {Search} from "./Components/Search"
+import {ContainsPipeUsers} from "./Pipes/ContainsPipeUsers"
 
 
 @Component({
@@ -11,18 +13,21 @@ import {UsersFollowingList} from "./Components/UsersFollowingList"
 })
 
 @View({
-    directives: [Trends, UserInfo, UsersFollowingList],
+        directives: [Trends, UserInfo, UsersFollowingList, Search],
+        pipes: [ContainsPipeUsers],
     template:
     `<main>
     <aside id="user-panel-container">
         <user-info [user] = "currentUser" >Loading user info..</user-info>
+        <search (search-data)="onSearchKeyUpdate($event)">Loading search bar..</search>
+        <br/>
         <trends [hashtags]="hashtags">Loading list..</trends>
     </aside>
 
     <div id="main-content-container" class="panel">
-        <users-following-list [users]="currentUser.following" is-following = "true" (unfollowed)="onUnFollow($event)">Loading users you followed..</users-following-list>
+        <users-following-list [users]="currentUser.following|containsuser:searchKey" is-following = "true" (unfollowed)="onUnFollow($event)">Loading users you followed..</users-following-list>
         <hr/>
-        <users-following-list [users]="notFollowing" (followed)="onFollow($event)">Loading other users..</users-following-list>    
+        <users-following-list [users]="notFollowing|containsuser:searchKey" (followed)="onFollow($event)">Loading other users..</users-following-list>    
     </div>
 
     </main>
@@ -34,8 +39,10 @@ export class Following {
     public users: UserModel[];
     public currentUser: UserModel;
     public notFollowing: UserModel[];
+    private searchKey: string;
 
     constructor() {
+        this.searchKey = "";
         this.hashtags = [
             new HashtagModel("#hashtag_trend1"),
             new HashtagModel("#hashtag_trend2"),
@@ -86,6 +93,9 @@ export class Following {
         }
 
         this.notFollowing.push(user);
+    }
+    private onSearchKeyUpdate(data: string): void {
+        this.searchKey = data;
     }
 }
 
