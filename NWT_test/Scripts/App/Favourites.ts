@@ -5,6 +5,8 @@ import {User as UserModel} from "./Model/User"
 import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
+import {Search} from "./Components/Search"
+import {ContainsPipe} from "./Pipes/ContainsPipe"
 
 
 @Component({
@@ -12,20 +14,23 @@ import {UserInfo} from "./Components/UserInfo"
 })
 
 @View({
-    directives: [TweetsList, Trends, UserInfo],
+        directives: [TweetsList, Trends, UserInfo, Search],
+        pipes: [ContainsPipe],
     template:
     `<main>
     <aside id="user-panel-container">
         <user-info [user]="users[0]">Loading user info..</user-info>
+        <search (search-data)="onSearchKeyUpdate($event)">Loading search bar..</search>
+        <br/>
         <trends [hashtags]="hashtags">Loading list..</trends>
     </aside>
 
     <div id="main-content-container" class="panel">
         <h3>Tweets you favourited</h3><br/>
-        <tweets-list [tweets]="currentUser.favourites" [current-user]="currentUser" (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
+        <tweets-list [tweets]="currentUser.favourites|contains:searchKey" [current-user]="currentUser" (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
         <br/><hr/><br/>
         <h3>You may also like</h3><br/>
-        <tweets-list [tweets]="notFavourited" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)" >Loading User's Tweets..</tweets-list>
+        <tweets-list [tweets]="notFavourited|contains:searchKey" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)" >Loading User's Tweets..</tweets-list>
     </div>
 </main>
 
@@ -38,8 +43,10 @@ export class Favourites {
     public users: UserModel[];
     public currentUser: UserModel;
     public notFavourited: TweetModel[];
+    private searchKey: string;
 
     constructor() {
+        this.searchKey = "";
         this.hashtags = [
             new HashtagModel("#hashtag_trend1"),
             new HashtagModel("#hashtag_trend2"),
@@ -97,6 +104,10 @@ export class Favourites {
             this.currentUser.favourites.splice(index, 1);
         }
         this.notFavourited.push(favourite);
+    }
+
+    private onSearchKeyUpdate(data: string): void {
+        this.searchKey = data;
     }
 }
 

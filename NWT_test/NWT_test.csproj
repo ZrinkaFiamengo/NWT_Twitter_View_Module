@@ -266,6 +266,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\Components\NewTweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\ProfileBox.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\Search.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Trends.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Tweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\TweetsList.ts" />

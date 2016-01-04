@@ -6,6 +6,8 @@ import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
 import {ProfileBox} from "./Components/ProfileBox"
+import {Search} from "./Components/Search"
+import {ContainsPipe} from "./Pipes/ContainsPipe"
 
 
 @Component({
@@ -13,20 +15,21 @@ import {ProfileBox} from "./Components/ProfileBox"
 })
 
 @View({
-        directives: [TweetsList, Trends, UserInfo, ProfileBox],
+        directives: [TweetsList, Trends, UserInfo, ProfileBox, Search],
+        pipes: [ContainsPipe],
     template:
     `
     <profile-box [user] = "currentUser" >Loading user info..</profile-box>
 
 <main>
     <div id="profile-data-div">
-        <tweets-list [tweets]="currentUser.tweets" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)"  (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
+        <tweets-list [tweets]="currentUser.tweets|contains:searchKey" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)"  (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
     </div>
 
     <aside id="user-panel-container" class="hidden-xs trends">
-
         <trends [hashtags]="hashtags" >Loading list..</trends>
-
+        <search (search-data)="onSearchKeyUpdate($event)">Loading search bar..</search>
+        <br/>
     </aside>
 </main>
 `
@@ -37,8 +40,10 @@ export class Profile {
     public tweets: TweetModel[];
     public users: UserModel[];
     public currentUser: UserModel;
+    private searchKey: string;
 
     constructor() {
+        this.searchKey = "";
         this.hashtags = [
             new HashtagModel("#hashtag_trend1"),
             new HashtagModel("#hashtag_trend2"),
@@ -81,6 +86,10 @@ export class Profile {
         if (index != -1) {
             this.currentUser.favourites.splice(index, 1);
         }
+    }
+
+    private onSearchKeyUpdate(data: string): void {
+        this.searchKey = data;
     }
 }
 

@@ -6,6 +6,7 @@ import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
 import {NewTweet} from "./Components/NewTweet"
+import {Search} from "./Components/Search"
 import {ContainsPipe} from "./Pipes/ContainsPipe"
 
 
@@ -14,23 +15,17 @@ import {ContainsPipe} from "./Pipes/ContainsPipe"
 })
 
     @View({
-        directives: [TweetsList, Trends, UserInfo, NewTweet],
+        directives: [TweetsList, Trends, UserInfo, NewTweet, Search],
         pipes: [ContainsPipe],
     template:
     `<main>
 
     <aside id="user-panel-container">
         <user-info [user] = "currentUser" >Loading user info..</user-info>
-
-        <div class="input-group">
-         <input type="text" class="form-control" placeholder="Search for..." #search (keyup)="updateSearchKey(search)"/>
-         <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" /></button>
-         </span>
-        </div>
-
+        <search (search-data)="onSearchKeyUpdate($event)">Loading search bar..</search>
         <br/>
         <trends [hashtags]="hashtags" >Loading list..</trends>
+        
     </aside>
 
     <div id="main-content-container" class="panel">
@@ -51,7 +46,6 @@ export class Index {
 
     constructor() {
         this.searchKey = "";
-
         this.hashtags = [
             new HashtagModel("#hashtag_trend1"),
             new HashtagModel("#hashtag_trend2"),
@@ -103,8 +97,8 @@ export class Index {
         }
     }
 
-    private updateSearchKey(input: HTMLInputElement): void {
-        this.searchKey = input.value;
+    private onSearchKeyUpdate(data: string): void {
+        this.searchKey = data;
     }
 }
 
