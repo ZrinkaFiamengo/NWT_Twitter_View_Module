@@ -92,8 +92,8 @@ export class Profile {
             if (user != this.currentUser && this.currentUser.following.indexOf(user) == -1)
                 this.notFollowing.push(user);
         });
-    }
     /*Universal data part-end*/
+    }
 
     private onPutFavourited(favourite: TweetModel): void {
         this.currentUser.favourites.push(favourite);

@@ -56,6 +56,10 @@ h4{
     background-color: ghostwhite;
 }
 
+.nav{
+        max-height: 55px;
+}
+
 .search-box{
 	width: 270px;
 	margin: 10px;
@@ -165,6 +169,19 @@ main{
 	background-image: -o-linear-gradient(bottom, white 50%, #0084B4 50%);
 	background-image: -moz-linear-gradient(bottom, white 50%, #0084B4 50%);
 	background-image: -webkit-linear-gradient(bottom, white 50%, #0084B4 50%);
+}
+
+#hashtag-panel{
+    margin-left: 52px;
+	margin-right: 52px;
+    margin-top: 10px;
+    height: 100px;
+	min-width: 200px;
+    background-color: #0084B4;
+    text-align: center;
+	font-size: 30px;
+	color: white;
+    padding: 30px;
 }
 
 

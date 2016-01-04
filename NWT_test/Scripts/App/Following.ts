@@ -92,8 +92,8 @@ export class Following {
             if (user != this.currentUser && this.currentUser.following.indexOf(user) == -1)
                 this.notFollowing.push(user);
         });
-    }
     /*Universal data part-end*/
+    }
 
 
     private onFollow(user: UserModel) {

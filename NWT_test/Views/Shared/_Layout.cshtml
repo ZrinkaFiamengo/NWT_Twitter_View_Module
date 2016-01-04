@@ -31,7 +31,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <img src="~/Content/Users/User1.png" class="user-image" alt="user picture" />
+                        <span><a href="@Url.Action("Profile", "Home")"><img src="~/Content/Users/User1.png" class="user-image" alt="user picture" /></a></span>
                     </li>
                     <li class="main-navbar-menu-item" id="new-tweet"> <a href="#"> <h4 id="new-tweet-text">Tweet  <span class="glyphicon glyphicon-pencil" /></h4> </a></li>
                 </ul>
@@ -40,6 +40,7 @@
     </nav>
 
     <div class="container body-content">
+        <a href="@Url.Action("Hashtag", "Home")"><h4>Hashtag view</h4></a>
         @RenderBody()
     </div>
         <hr />

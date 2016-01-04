@@ -93,8 +93,8 @@ export class Index {
             if (user != this.currentUser && this.currentUser.following.indexOf(user) == -1)
                 this.notFollowing.push(user);
         });
-    }
     /*Universal data part-end*/
+    }
 
     private onNewTweetPublish(data: string) {
 

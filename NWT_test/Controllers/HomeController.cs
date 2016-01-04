@@ -42,5 +42,12 @@ namespace NWT_test.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Hashtag()
+        {
+
+            return View();
+        }
     }
 }

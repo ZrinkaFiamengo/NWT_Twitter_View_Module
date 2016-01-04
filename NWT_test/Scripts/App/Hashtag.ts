@@ -5,39 +5,41 @@ import {User as UserModel} from "./Model/User"
 import {TweetsList} from "./Components/TweetsList"
 import {Trends} from "./Components/Trends"
 import {UserInfo} from "./Components/UserInfo"
+import {ProfileBox} from "./Components/ProfileBox"
 import {Search} from "./Components/Search"
 import {ContainsPipe} from "./Pipes/ContainsPipe"
 
 
 @Component({
-    selector: "favourites"
+    selector: "hashtag"
 })
 
 @View({
-        directives: [TweetsList, Trends, UserInfo, Search],
-        pipes: [ContainsPipe],
+    directives: [TweetsList, Trends, UserInfo, ProfileBox, Search],
+    pipes: [ContainsPipe],
     template:
-    `<main>
-    <aside id="user-panel-container">
-        <user-info [user]="users[0]">Loading user info..</user-info>
+    `
+     <div class="panel panel-default" id="hashtag-panel">
+        <label>{{currentHashtag.data}}</label><br/>
+     </div>
+
+<main>
+    <div id="profile-data-div">
+        <tweets-list [tweets]="twetsWithHashtag|contains:searchKey" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)"  (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
+    </div>
+
+    <aside id="user-panel-container" class="hidden-xs trends">
+        <trends [hashtags]="hashtags" >Loading list..</trends>
         <search (search-data)="onSearchKeyUpdate($event)">Loading search bar..</search>
         <br/>
-        <trends [hashtags]="hashtags">Loading list..</trends>
     </aside>
-
-    <div id="main-content-container" class="panel">
-        <h3>Tweets you favourited</h3><br/>
-        <tweets-list [tweets]="currentUser.favourites|contains:searchKey" [current-user]="currentUser" (remove-favourited)="onRemoveFavourited($event)">Loading User's Tweets..</tweets-list>
-        <br/><hr/><br/>
-        <h3>You may also like</h3><br/>
-        <tweets-list [tweets]="notFavourited|contains:searchKey" [current-user]="currentUser" (put-favourited)="onPutFavourited($event)" >Loading User's Tweets..</tweets-list>
-    </div>
 </main>
-
 `
 })
 
-export class Favourites {
+export class Hashtag {
+    public currentHashtag: HashtagModel;
+    public twetsWithHashtag: TweetModel[];
     /*Universal data part*/
     public hashtags: HashtagModel[];
     public tweets: TweetModel[];
@@ -94,14 +96,21 @@ export class Favourites {
             if (user != this.currentUser && this.currentUser.following.indexOf(user) == -1)
                 this.notFollowing.push(user);
         });
-    /*Universal data part-end*/
+        /*Universal data part-end*/
+
+        this.currentHashtag = this.hashtags[1]; 
+
+        this.twetsWithHashtag = [];
+
+        this.tweets.forEach(tweet=> {
+            tweet.hashtags.forEach(hashtag=> {
+                if (hashtag == this.currentHashtag)
+                    this.twetsWithHashtag.push(tweet);
+            });
+        });
     }
 
     private onPutFavourited(favourite: TweetModel): void {
-        var index = this.notFavourited.indexOf(favourite);
-        if (index != -1) {
-            this.notFavourited.splice(index, 1);
-        }
         this.currentUser.favourites.push(favourite);
     }
 
@@ -110,7 +119,6 @@ export class Favourites {
         if (index != -1) {
             this.currentUser.favourites.splice(index, 1);
         }
-        this.notFavourited.push(favourite);
     }
 
     private onSearchKeyUpdate(data: string): void {
@@ -118,4 +126,4 @@ export class Favourites {
     }
 }
 
-bootstrap(Favourites);
+bootstrap(Hashtag);
