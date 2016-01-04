@@ -36,10 +36,13 @@ import {ContainsPipe} from "./Pipes/ContainsPipe"
 })
 
 export class Profile {
+    /*Universal data part*/
     public hashtags: HashtagModel[];
     public tweets: TweetModel[];
     public users: UserModel[];
     public currentUser: UserModel;
+    public notFavourited: TweetModel[];
+    public notFollowing: UserModel[];
     private searchKey: string;
 
     constructor() {
@@ -73,9 +76,24 @@ export class Profile {
         ];
 
         this.currentUser = this.users[0];
-
         this.currentUser.tweets = this.tweets.filter(tweet => tweet.author == this.currentUser);
+        this.currentUser.favourites = [this.tweets[1], this.tweets[2]];
+
+        this.notFavourited = [];
+
+        this.tweets.forEach(tweet=> {
+            if (this.currentUser.favourites.indexOf(tweet) == -1)
+                this.notFavourited.push(tweet);
+        });
+
+        this.notFollowing = [];
+
+        this.users.forEach(user=> {
+            if (user != this.currentUser && this.currentUser.following.indexOf(user) == -1)
+                this.notFollowing.push(user);
+        });
     }
+    /*Universal data part-end*/
 
     private onPutFavourited(favourite: TweetModel): void {
         this.currentUser.favourites.push(favourite);
