@@ -58,10 +58,10 @@ export class Index {
         ];
 
         this.users = [
-            new UserModel("Ime", "Prezime", "Nickname", "/Content/Users/User1.png"),
-            new UserModel("Ime2", "Prezime2", "Nickname2", "/Content/Users/User3.png"),
-            new UserModel("Ime3", "Prezime3", "Nickname3", "/Content/Users/User2.png"),
-            new UserModel("Ime4", "Prezime4", "Nickname4", "/Content/Users/User4.png"),
+            new UserModel("Ime", "Prezime", "Nickname", "imeprezime@gmail.com","Password.1", "/Content/Users/User1.png"),
+            new UserModel("Ime2", "Prezime2", "Nickname2", "ime2prezime2@gmail.com", "Password.2", "/Content/Users/User3.png"),
+            new UserModel("Ime3", "Prezime3", "Nickname3", "ime3prezime3@gmail.com", "Password.3", "/Content/Users/User2.png"),
+            new UserModel("Ime4", "Prezime4", "Nickname4", "ime4prezime4@gmail.com", "Password.4", "/Content/Users/User4.png"),
         ];
 
         this.users[0].following = [this.users[2], this.users[1]];

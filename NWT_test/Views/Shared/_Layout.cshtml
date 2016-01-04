@@ -40,7 +40,13 @@
     </nav>
 
     <div class="container body-content">
-        <a href="@Url.Action("Hashtag", "Home")"><h4>Hashtag view</h4></a>
+        <!--testing part-->
+        <span>
+          <a href="@Url.Action("Hashtag", "Home")">Hashtag view</a>
+            <span style="display:inline-block; width: 30px;"></span>
+          <a href="@Url.Action("EditProfile", "Home")">Edit profile</a>
+        </span>
+        <!--testing part-->
         @RenderBody()
     </div>
         <hr />

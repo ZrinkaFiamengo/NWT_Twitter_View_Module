@@ -251,6 +251,7 @@
     <Content Include="Views\Home\Following.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Home\Hashtag.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,6 +266,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\App\Components\EditForm.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\NewTweet.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\ProfileBox.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Search.ts" />
@@ -274,6 +276,7 @@
     <TypeScriptCompile Include="Scripts\App\Components\UserFollowing.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\UsersFollowingList.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\UserInfo.ts" />
+    <TypeScriptCompile Include="Scripts\App\EditProfile.ts" />
     <TypeScriptCompile Include="Scripts\App\Favourites.ts" />
     <TypeScriptCompile Include="Scripts\App\Following.ts" />
     <TypeScriptCompile Include="Scripts\App\Hashtag.ts" />
