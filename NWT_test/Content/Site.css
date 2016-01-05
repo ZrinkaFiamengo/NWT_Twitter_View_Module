@@ -294,6 +294,8 @@ main{
 
 .edit-profile-image{
     border-radius: 30px;
+    width: 200px;
+    height: 200px;
 }
 
 .btn-file {
